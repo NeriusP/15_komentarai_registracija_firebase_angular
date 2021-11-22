@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    Registracijos forma
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()" #form="ngForm">
+                    <div class="mb-3">
+                        <label  class="form-label">El. paštas</label>
+                        <input type="text" class="form-control" ngModel name="email" required email usedEmail #email="ngModel">
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Amžius</label>
+                        <input type="text" class="form-control" ngModel name="age" required #age="ngModel">
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Slaptažodis</label>
+                        <input type="text" class="form-control" ngModel name="password" required #password="ngModel">
+                        <button class="btn btn-info" type="button" (click)="randomPassword()">Random slaptažodis</button>
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Lytis</label>
+                        <select class="form-control" ngModel name="gender" required>
+                            <option value="Vyras">Vyr.</option>
+                            <option value="Moteris">Mot.</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-success" [disabled]="!form.valid">Registruotis</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

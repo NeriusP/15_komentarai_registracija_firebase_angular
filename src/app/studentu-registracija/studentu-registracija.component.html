@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-header">Studentų registracija</div>
+            <div class="card-body">
+                <form [formGroup]="rezForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Vartotojo vardas</label>
+                        <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                        <span *ngIf="rezForm.get('name').invalid && rezForm.get('name').touched" class="help-block">Maksimalus vardo ilgis - 16 simbolių.</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="surname" class="form-label">Vartotojo pavardė</label>
+                        <input type="text" class="form-control" id="surname" name="surname" formControlName="surname">
+                        <span *ngIf="rezForm.get('surname').invalid && rezForm.get('surname').touched" class="help-block">Maksimalus pavardės ilgis - 16 simbolių.</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">El.paštas</label>
+                        <input type="text" class="form-control" id="email" name="email" formControlName="email">
+                    </div>
+                    <span *ngIf="rezForm.get('email').invalid && rezForm.get('email').touched" class="help-block">El. pašto adresas įrašytas neteisingai.</span>
+
+                    <div class="mb-3">
+                        <label for="code" class="form-label">Kodas</label>
+                        <input type="number" class="form-control" id="code" name="code" formControlName="code">
+                        <span *ngIf="rezForm.get('code').invalid && rezForm.get('code').touched" class="help-block">Kodas "{{rezForm.controls.code.value}}" neteisingas.</span>
+                    </div>
+                    <button class="btn btn-success" type="submit" [disabled]="rezForm.invalid">Registruotis</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
